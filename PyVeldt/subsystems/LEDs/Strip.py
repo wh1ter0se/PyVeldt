@@ -1,6 +1,5 @@
-from functools import lru_cache
-from itertools import permutations as perm
-from typing import List, Dict, Tuple
+from itertools import permutations as permute
+from typing import List
 
 class Strip():
 
@@ -27,10 +26,11 @@ class Strip():
             raise ValueError(f'Invalid type: {self.type}')
 
         self.color_order = color_order.upper().strip()
-        self.num_channels = len(self.color_order)
-        if self.color_order not in [*[''.join(x) for x in perm('RGB')], 
-                                    *[''.join(x) for x in perm('RGBW')]]:
+        if self.color_order not in [*[''.join(x) for x in permute('RGB')], 
+                                    *[''.join(x) for x in permute('RGBW')]]:
             raise ValueError(f'Invalid color_order: {self.color_order}')
+        self.has_W_channel = 'W' in self.color_order
+        self.num_channels = len(self.color_order)
         
         self.segments = {}
         for index, length in enumerate(lengths,1):
