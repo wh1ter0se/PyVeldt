@@ -1,4 +1,5 @@
 /build
 /dist
-/pyveldt.egg-info
+/*.egg-info
+/*.eggs
 /venv

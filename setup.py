@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 setup(
     name='pyveldt',
     packages=find_packages(include=['PyVeldt']),
-    version='0.0.0',
+    version='0.1.0',
     description='A library implementation of the Veldt LED system',
     author='wh1ter0se',
     license='AGPL-3.0',
