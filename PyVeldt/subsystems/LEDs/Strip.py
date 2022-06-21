@@ -1,10 +1,10 @@
 from itertools import permutations as permute
-from typing import List
+from typing import List, Tuple
 
 class Strip():
 
     def __init__(self, label:str, lengths:List[int], 
-                 type:str='WS2811', leds_per_m:int=30, color_order:str='RGB'):
+                 type:str='WS2811', leds_per_m:int=30, color_order:str='RGB') -> None:
         '''Multi-channel addressable LED strip.
         
            Arguments:
@@ -44,13 +44,13 @@ class Strip():
         self.enabled = True
 
 
-    def get_segment(self, segment_label:str):
+    def get_segment(self, segment_label:str): # -> Segment
         ''''''
         for key, value in self.segments.items():
             if key == segment_label: return value
 
 
-    def get_segments(self) -> list:
+    def get_segments(self) -> list: # -> List[Segment]
         ''''''
         return list(self.segments.values())
 
@@ -63,7 +63,7 @@ class Strip():
 
 class Segment():
 
-    def __init__(self, strip:Strip, label:str, length:int, offset:int):
+    def __init__(self, strip:Strip, label:str, length:int, offset:int) -> None:
         ''''''
         self.label = label
         
@@ -74,6 +74,6 @@ class Segment():
         self._pixels = [(0,)*self.strip.num_channels for x in self.length()]
 
 
-    def pixels(self):
+    def pixels(self) -> List[Tuple[int,int,int]]:
         ''''''
         return self.strip.pixels[self.offset:(self.offset+self.length)]

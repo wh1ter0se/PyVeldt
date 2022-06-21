@@ -5,7 +5,7 @@ import opc
 
 class FadeCandy():
 
-    def __init__(self, channel:int=0):
+    def __init__(self, channel:int=0) -> None:
         ''''''
         self.channel = channel
         self.client_port = 'localhost:7892'
@@ -15,7 +15,7 @@ class FadeCandy():
         self.pixels = [(0,0,0) for x in 512]
 
 
-    def add_strip(self, port:int, strip:Strip):
+    def add_strip(self, port:int, strip:Strip) -> None:
         ''''''
         if port not in range(8):
             raise ValueError(f'Invalid port: {port}')
@@ -30,7 +30,7 @@ class FadeCandy():
         self.strips[port] = strip
         
 
-    def update_pixels(self):
+    def update_pixels(self) -> None:
         ''''''
         for port, strip in enumerate(self.strips):
             offset = port * 64
