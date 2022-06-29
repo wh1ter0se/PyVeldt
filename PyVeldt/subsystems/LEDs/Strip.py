@@ -40,7 +40,7 @@ class Strip():
                                                length=length, 
                                                offset=sum(lengths[:index-1]))
 
-        self.pixels = [(0,)*self.num_channels for x in self.length()]
+        self.pixels = [(0,)*self.num_channels for x in range(self.length())]
         self.enabled = True
 
 
@@ -71,7 +71,7 @@ class Segment():
         self.length = length
         self.offset = offset
 
-        self._pixels = [(0,)*self.strip.num_channels for x in self.length()]
+        self._pixels = [(0,)*self.strip.num_channels for x in range(self.length)]
 
 
     def pixels(self) -> List[Tuple[int,int,int]]:

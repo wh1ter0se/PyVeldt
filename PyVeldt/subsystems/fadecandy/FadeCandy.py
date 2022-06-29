@@ -1,7 +1,8 @@
 from ..LEDs.Strip import Strip
+from . import opc
 from typing import List
 import warnings
-import opc
+
 
 class FadeCandy():
 
@@ -12,7 +13,7 @@ class FadeCandy():
         self.client = opc.Client(self.client_port)
         
         self.strips = [None for x in range(8)]
-        self.pixels = [(0,0,0) for x in 512]
+        self.pixels = [(0,0,0) for x in range(512)]
 
 
     def add_strip(self, port:int, strip:Strip) -> None:
