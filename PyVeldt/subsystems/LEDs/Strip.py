@@ -59,6 +59,8 @@ class Strip():
         ''''''
         return sum(seg.length for seg in self.segments.values())
 
+        
+
 
 
 class Segment():
@@ -71,7 +73,7 @@ class Segment():
         self.length = length
         self.offset = offset
 
-        self._pixels = [(0,)*self.strip.num_channels for x in range(self.length)]
+        #self._pixels = [(0,)*self.strip.num_channels for x in range(self.length)]
 
 
     def pixels(self) -> List[Tuple[int,int,int]]:

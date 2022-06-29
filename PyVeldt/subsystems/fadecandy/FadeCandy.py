@@ -26,7 +26,7 @@ class FadeCandy():
             raise ValueError('FadeCandy does not support a white channel')
         
         if self.strips[port] is not None:
-            warnings.warn(f"Port {port}: Overwriting strip '{self.strips[port].label}' with strip '{strip.label}'")
+            warnings.warn(f"Port {port}: Overwriting strip '{self.strips[port].label}' with strip '{strip.label}'", UserWarning)
 
         self.strips[port] = strip
         
@@ -34,6 +34,7 @@ class FadeCandy():
     def update_pixels(self) -> None:
         ''''''
         for port, strip in enumerate(self.strips):
-            offset = port * 64
-            self.pixels[offset:(offset+strip.length())] = strip.pixels
+            if strip is not None:
+                offset = port * 64
+                self.pixels[offset:(offset+strip.length())] = strip.pixels
         self.client.put_pixels(self.pixels)
