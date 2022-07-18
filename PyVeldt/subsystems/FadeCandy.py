@@ -1,5 +1,5 @@
-from ..LEDs.Strip import Strip
-from . import opc
+from LEDStrip import Strip
+from ..utils import opc
 from typing import List
 import warnings
 

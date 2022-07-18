@@ -1,5 +1,5 @@
-from PyVeldt.subsystems.fadecandy import FadeCandy as fc
-from PyVeldt.subsystems.LEDs import Strip as strip
+from PyVeldt.subsystems import FadeCandy as fc
+from PyVeldt.subsystems import LEDStrip as strip
 import pytest
 
 def test_fadecandy():

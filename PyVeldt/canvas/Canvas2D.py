@@ -1,4 +1,4 @@
-from ..subsystems.LEDs.Strip import Segment
+from ..subsystems.LEDStrip import Segment
 from ..utils import math
 from typing import Tuple
 
